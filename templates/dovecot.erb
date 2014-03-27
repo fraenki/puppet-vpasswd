@@ -1,0 +1,26 @@
+<%- if @my_settings['maildomains'] -%>
+  <%- # loop through all maildomains -%>
+  <%- @my_settings['maildomains'].each_pair do |domain, config| -%>
+    <%- # check for alternative username -%>
+    <%- if config.is_a?(Hash) and config['username'].is_a?(String) -%>
+      <%- username = config['username'] -%>
+    <%- elsif @my_settings['username'] -%>
+      <%- username = @my_settings['username'] -%>
+    <%- else -%>
+      <%- username = @my_username -%>
+    <%- end -%>
+<%= username %>@<%= domain %>:{<%= @my_password_scheme %>}<%= @my_password %>:<%= @parent_uid %>:<%= @parent_gid %>::<%= @my_maildir %>::<% if @quota_enabled %>userdb_quota_rule=*:bytes=<%= @my_quota %><% end %>
+    <%- # check for domain-specific aliases -%>
+    <%- if @alias_login_enabled and config.is_a?(Hash) and config['aliases'].is_a?(Array) -%>
+      <%- config['aliases'].each do |localalias| -%>
+<%= localalias %>@<%= domain %>:{<%= @my_password_scheme %>}<%= @my_password %>:<%= @parent_uid %>:<%= @parent_gid %>::<%= @my_maildir %>::<% if @quota_enabled %>userdb_quota_rule=*:bytes=<%= @my_quota %><% end %>
+      <%- end -%>
+    <%- end -%>
+    <%- # check for user-specific aliases -%>
+    <%- if @alias_login_enabled and @my_settings['aliases'] -%>
+      <%- @my_settings['aliases'].each do |globalalias| -%>
+<%= globalalias %>@<%= domain %>:{<%= @my_password_scheme %>}<%= @my_password %>:<%= @parent_uid %>:<%= @parent_gid %>::<%= @my_maildir %>::<% if @quota_enabled %>userdb_quota_rule=*:bytes=<%= @my_quota %><% end %>
+      <%- end -%>
+    <%- end -%>
+  <%- end -%>
+<%- end -%>
