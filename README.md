@@ -56,63 +56,63 @@ First, you need to define your users in HIERA. While this module tries to be as 
 
     virtual_accounts:
       john:
-	comment: John Doe
-	password: $1$LIq.MKZE$oYK01CVMjxPfBEicJDE9L1
-	features:
-	  mail: true
+        comment: John Doe
+        password: $1$LIq.MKZE$oYK01CVMjxPfBEicJDE9L1
+        features:
+          mail: true
       sue:
-	comment: Sue Doe
-	password: $1$LIq.MKZE$oYK01CVMjxPfBEicJDE9L1
-	features:
-	  mail: true
+        comment: Sue Doe
+        password: $1$LIq.MKZE$oYK01CVMjxPfBEicJDE9L1
+        features:
+          mail: true
 
 ###Setup HIERA: _Complex example (YAML)_
 
     virtual_accounts:
       john:
-	comment: John Doe
-	password: $1$LIq.MKZE$oYK01CVMjxPfBEicJDE9L1
-	features:
-	  ftp: false
-	  mail: true
-	  www: false
-	settings:
-	  aliases: [john.doe, jd]
-	  maildir: john_doe
-	  maildomains:
-	    company.com:
-	      aliases: [sales]
-	    example.com:
-	  quota: 1024M
+        comment: John Doe
+        password: $1$LIq.MKZE$oYK01CVMjxPfBEicJDE9L1
+        features:
+          ftp: false
+          mail: true
+          www: false
+        settings:
+          aliases: [john.doe, jd]
+          maildir: john_doe
+          maildomains:
+            company.com:
+              aliases: [sales]
+            example.com:
+          quota: 1024M
       sue:
-	comment: Sue Doe
-	password: $1$LIq.MKZE$oYK01CVMjxPfBEicJDE9L1
-	features:
-	  ftp: false
-	  mail: true
-	  www: false
-	settings:
-	  aliases: [sue.doe, sd]
-	  maildir: sue_doe
-	  maildomains:
-	    company.com:
-	      aliases: [accounting, contact]
-	    example.com:
-	  quota: 1024M
+        comment: Sue Doe
+        password: $1$LIq.MKZE$oYK01CVMjxPfBEicJDE9L1
+        features:
+          ftp: false
+          mail: true
+          www: false
+        settings:
+          aliases: [sue.doe, sd]
+          maildir: sue_doe
+          maildomains:
+            company.com:
+              aliases: [accounting, contact]
+            example.com:
+          quota: 1024M
       steve:
-	comment: Steve Smith
-	password: $1$LIq.MKZE$oYK01CVMjxPfBEicJDE9L1
-	features:
-	  ftp: true
-	  mail: true
-	  www: true
-	settings:
-	  aliases: [steve.smith, ss]
-	  maildir: service
-	  maildomains:
-	    company.com:
-	      aliases: [helpdesk, hostmaster, support]
-	  quota: 4096M
+        comment: Steve Smith
+        password: $1$LIq.MKZE$oYK01CVMjxPfBEicJDE9L1
+        features:
+          ftp: true
+          mail: true
+          www: true
+        settings:
+          aliases: [steve.smith, ss]
+          maildir: service
+          maildomains:
+            company.com:
+              aliases: [helpdesk, hostmaster, support]
+          quota: 4096M
 
 ###Basic Usage
 
@@ -155,23 +155,23 @@ All currently supported attributes:
 
     virtual_accounts:
       john_doe:
-	comment: John Doe
-	password: $1$LIq.MKZE$oYK01CVMjxPfBEicJDE9L1
-	features:
-	  ftp: false
-	  mail: true
-	  www: false
-	settings:
-	  aliases: [john.doe, jd]
+        comment: John Doe
+        password: $1$LIq.MKZE$oYK01CVMjxPfBEicJDE9L1
+        features:
+          ftp: false
+          mail: true
+          www: false
+        settings:
+          aliases: [john.doe, jd]
           local_alias: john.doe
-	  maildir: john_doe/default
-	  maildomains:
-	    company.com:
-	      aliases: [sales]
-	    2ndcompany.com:
+          maildir: john_doe/default
+          maildomains:
+            company.com:
+              aliases: [sales]
+            2ndcompany.com:
               username: ceo
               aliases: [contact, sales]
-	  quota: 1024M
+          quota: 1024M
           username: john.doe
 
 ###Module parameter reference
