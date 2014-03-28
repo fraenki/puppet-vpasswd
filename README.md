@@ -149,7 +149,7 @@ You may want to customize the whole thing by adding your own template "flavour" 
 
 ##Reference
 
-###HIERA user reference
+###HIERA attribute reference
 
 All currently supported attributes:
 
