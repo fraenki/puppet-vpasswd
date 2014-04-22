@@ -10,7 +10,8 @@
 - [Usage](#usage)
   - [Setup HIERA: _Simple example (YAML)_](#setup-hiera-_simple-example-yaml_)
   - [Setup HIERA: _Complex example (YAML)_](#setup-hiera-_complex-example-yaml_)
-  - [Basic Usage](#basic-usage)
+  - [Basic Usage (Dovecot)](#basic-usage-dovecot)
+  - [Basic Usage (ProFTPD)](#basic-usage-proftpd)
   - [Complex Example](#complex-example)
 - [Reference](#reference)
   - [HIERA attribute reference](#hiera-attribute-reference)
@@ -107,6 +108,7 @@ First, you need to define your users in HIERA. While this module tries to be as 
           ftp: true
           mail: true
           www: true
+        home: /stor/nfs/home/steve
         settings:
           aliases: [steve.smith, ss]
           maildir: service
@@ -115,9 +117,9 @@ First, you need to define your users in HIERA. While this module tries to be as 
               aliases: [helpdesk, hostmaster, support]
           quota: 4096M
 
-###Basic Usage
+###Basic Usage (Dovecot)
 
-The most basic, yet fully-working example:
+The most basic, yet fully-working example for Dovecot:
 
     $virtual_accounts = hiera_hash('virtual_accounts')
 
@@ -132,6 +134,20 @@ This will create a passwd-like file in dovecot scheme with the following content
     jd@company.com:{MD5-CRYPT}$1$LIq.MKZE$oYK01CVMjxPfBEicJDE9L1:0:0::/var/mail/john::userdb_quota_rule=*:bytes=1024M
     sales@company.com:{MD5-CRYPT}$1$LIq.MKZE$oYK01CVMjxPfBEicJDE9L1:0:0::/var/mail/john::userdb_quota_rule=*:bytes=1024M
     (...)
+
+###Basic Usage (ProFTPD)
+
+A basic example for ProFTPD:
+
+    $virtual_accounts = hiera_hash('virtual_accounts')
+
+    vpasswd::proftpd { 'my proftpd users':
+      hash    => $virtual_accounts,
+    }
+
+    john:$1$LIq.MKZE$oYK01CVMjxPfBEicJDE9L1:65534:65534:::/bin/sh
+    sue:$1$LIq.MKZE$oYK01CVMjxPfBEicJDE9L1:65534:65534:::/bin/sh
+    steve:$1$LIq.MKZE$oYK01CVMjxPfBEicJDE9L1:65534:65534::/stor/nfs/home/steve:/bin/sh
 
 ###Complex Example
 
@@ -162,6 +178,7 @@ All currently supported attributes:
           ftp: false
           mail: true
           www: false
+        home: /stor/nfs/home/john
         settings:
           aliases: [john.doe, jd]
           local_alias: john.doe
