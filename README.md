@@ -145,6 +145,8 @@ A basic example for ProFTPD:
       hash    => $virtual_accounts,
     }
 
+This will create a passwd-like file in ProFTPD scheme with the following content:
+
     john:$1$LIq.MKZE$oYK01CVMjxPfBEicJDE9L1:65534:65534:::/bin/sh
     sue:$1$LIq.MKZE$oYK01CVMjxPfBEicJDE9L1:65534:65534:::/bin/sh
     steve:$1$LIq.MKZE$oYK01CVMjxPfBEicJDE9L1:65534:65534::/stor/nfs/home/steve:/bin/sh
