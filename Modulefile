@@ -7,5 +7,5 @@ summary 'Manage virtual users'
 description 'This module manages virtual users and creates passwd-like files.'
 project_page 'https://github.com/fraenki/puppet-vpasswd'
 
-dependency 'puppetlabs/concat', '>= 1.0.0'
+dependency 'puppetlabs/concat', '>= 1.1.0'
 dependency 'puppetlabs/stdlib', '>= 4.0.0'

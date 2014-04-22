@@ -23,7 +23,6 @@ define vpasswd::file (
   $owner        = 'root',
 ) {
 
-  include concat::setup
   include stdlib
 
   validate_hash($config)

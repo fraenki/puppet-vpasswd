@@ -30,7 +30,6 @@ define vpasswd::user (
   $hash          = {}
 ) {
 
-  include concat::setup
   include stdlib
 
   validate_hash($global_config)
