@@ -1,5 +1,5 @@
 name    'fraenki-vpasswd'
-version '0.1.0'
+version '0.1.1'
 source 'git://github.com/fraenki/puppet-vpasswd'
 author 'Frank Wall'
 license 'Simplified BSD License'

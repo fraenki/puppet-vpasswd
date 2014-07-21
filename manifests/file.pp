@@ -32,7 +32,7 @@ define vpasswd::file (
   validate_hash($hash)
 
   # Title must not collide with our separator
-  if $user =~ /.*\#.*/ {
+  if $title =~ /.*\#.*/ {
     fail("vpasswd::file[${title}]: 'title' must not contain the '#' sign")
   }
 
