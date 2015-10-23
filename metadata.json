@@ -1,0 +1,26 @@
+{
+  "name": "fraenki-vpasswd",
+  "version": "0.1.2",
+  "author": "Frank Wall",
+  "summary": "Manage virtual users",
+  "license": "BSD-2-Clause",
+  "source": "https://github.com/fraenki/puppet-vpasswd",
+  "project_page": "https://github.com/fraenki/puppet-vpasswd",
+  "issues_url": "https://github.com/fraenki/puppet-vpasswd/issues",
+  "description": "This module manages virtual users and creates passwd-like files.",
+  "dependencies": [
+    { "name": "puppetlabs/concat", "version_requirement": ">= 1.0.0 <2.0.0" },
+    { "name": "puppetlabs/stdlib", "version_requirement": ">= 4.2.0 <5.0.0" }
+  ],
+  "requirements": [
+    { "name": "puppet", "version_requirement": "3.x" },
+    { "name": "pe", "version_requirement": "3.x" }
+  ],
+  "operatingsystem_support": [
+    { "operatingsystem": "Ubuntu" },
+    { "operatingsystem": "Debian" },
+    { "operatingsystem": "RedHat" },
+    { "operatingsystem": "CentOS" },
+    { "operatingsystem": "FreeBSD" }
+  ]
+}
