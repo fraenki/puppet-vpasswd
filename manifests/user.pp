@@ -71,7 +71,7 @@ define vpasswd::user (
 
   # Try to auto-detect the password scheme
   case $my_password {
-    /^\$1\$.*/:  { $my_password_scheme = 'MD5-CRYPT' }
+    /^\$1\$.*/, /^\$apr1\$.*/:  { $my_password_scheme = 'MD5-CRYPT' }
     /^\$2a\$.*/: { $my_password_scheme = 'BLF-CRYPT' }
     /^\$5\$.*/:  { $my_password_scheme = 'SHA256-CRYPT' }
     /^\$6\$.*/:  { $my_password_scheme = 'SHA512-CRYPT' }
