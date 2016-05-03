@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.1.3
+* Bugfix: Fix puppet-lint issues
+
 ## 0.1.2
 * Feature: Also detect the Apache variant of the MD5-based password algorithm (apr1)
 * Contributor: TravellingGuy
