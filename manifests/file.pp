@@ -60,7 +60,8 @@ define vpasswd::file (
   each($hash) |$user, $options| {
     # Username must not collide with our separator
     if $user =~ /.*\#.*/ {
-      fail("vpasswd::file[${title}][${user}]: username must not contain the '#' sign")
+      fail("vpasswd::file[${title}][${user}]: ",
+        "username must not contain the '#' sign")
     }
 
     # Instantiate user

@@ -47,15 +47,24 @@ define vpasswd::user (
   validate_absolute_path($file)
 
   # Evaluate user configuration
-  $my_comment  = $hash['comment']  ? { undef  => $comment, default => $hash['comment'] }
-  $my_enabled  = $hash['enabled']  ? { undef  => $enabled, default => $hash['enabled'] }
-  $my_features = $hash['features'] ? { undef  => $features, default => $hash['features'] }
-  $my_gid      = $hash['gid']      ? { undef  => $gid, default => $hash['gid'] }
-  $my_home     = $hash['home']     ? { undef  => $home, default => $hash['home'] }
-  $my_password = $hash['password'] ? { undef  => $password, default => $hash['password'] }
-  $my_settings = $hash['settings'] ? { undef  => $settings, default => $hash['settings'] }
-  $my_shell    = $hash['shell']    ? { undef  => $shell, default => $hash['shell'] }
-  $my_uid      = $hash['uid']      ? { undef  => $uid, default => $hash['uid'] }
+  $my_comment  = $hash['comment']  ?
+    { undef  => $comment, default => $hash['comment'] }
+  $my_enabled  = $hash['enabled']  ?
+    { undef  => $enabled,default => $hash['enabled'] }
+  $my_features = $hash['features'] ?
+    { undef  => $features, default => $hash['features'] }
+  $my_gid      = $hash['gid']      ?
+    { undef  => $gid, default => $hash['gid'] }
+  $my_home     = $hash['home']     ?
+    { undef  => $home, default => $hash['home'] }
+  $my_password = $hash['password'] ?
+    { undef  => $password, default => $hash['password'] }
+  $my_settings = $hash['settings'] ?
+    { undef  => $settings, default => $hash['settings'] }
+  $my_shell    = $hash['shell']    ?
+    { undef  => $shell, default => $hash['shell'] }
+  $my_uid      = $hash['uid']      ?
+    { undef  => $uid, default => $hash['uid'] }
 
   # Validate data
   validate_hash($my_features)
